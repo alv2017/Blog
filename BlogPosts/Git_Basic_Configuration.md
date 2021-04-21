@@ -88,4 +88,4 @@ If you followed the instructions in this post, your **.gitconfig** is going to l
             lg = log --oneline --all --graph --decorate
 
 
-** This is it! Thans for reading! **
+** This is it! Thanks for reading! **
