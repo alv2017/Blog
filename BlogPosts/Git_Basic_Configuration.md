@@ -9,25 +9,18 @@ it still very relevant and super useful for everyone willing to use Git on a sen
 
 ### Git Configuration Levels
 
-There are three levels of configuration in Git:
-
-* Local
-* Global
-* System
+There are three levels of configuration in Git: local, global, and system.
 
 In this post we will be focusing on *global* settings. You are applying Git global settings, 
 when configuring all your projects and repositories for your personal user account. 
 
 ### Basic Settings
 Let's open the terminal and let's type in the commands given below:
-    
-    # adding Git user name
+
     $ git config --global user.name "Your Name" 
 
-    # adding user email address
     $ git config --global user.email your@email.com
 
-    # adding coloration
     $ git config --global color.ui true
 
 In the first command set up your Git username. In the second command we set your email address.
@@ -95,4 +88,4 @@ If you followed the instructions in this post, your **.gitconfig** is going to l
             lg = log --oneline --all --graph --decorate
 
 
-This is it!
+** This is it! Thans for reading! **
