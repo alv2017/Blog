@@ -44,6 +44,8 @@ If you are on Windows use:
 
     $ git config --global core.autocrlf true
 
+    $ git config --global core.autocrlf true
+
 If you are on Linux or Mac use:
     
     $ git config --global core.autocrlf input
