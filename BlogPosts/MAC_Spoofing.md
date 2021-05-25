@@ -6,16 +6,16 @@ address is hard-coded on a network interface or a network device. It is used to
 identify a device and exchange data between network devices. MAC address
 of the device shouldn't be changed. However, many drivers allow MAC address 
 to be changed. Additionally, there are tools which can make an operating 
-system believe that the NIC has the MAC address of a user's choice. 
+system believe that the NIC (Network Interface Card) has the MAC address of a user's choice. 
 The process of changing of MAC address is known as MAC spoofing. Essentially, 
 MAC spoofing entails changing a computer identity, and it is quite easy 
 to implement.
 
 ### Changing MAC address on Linux
 
-As was already mentioned, MAC address references a network devices or 
-a network interfaces, so the first thing to do is to access the network
-devices data. This can be done by opening the Linux terminal CTRL+ALT+T
+As was already mentioned, MAC address references a network device or 
+a network interface, so the first thing we need to do is to access the network
+devices data. This can be done by opening a Linux terminal (with CTRL+ALT+T)
 and typing in
 
     $ ip link show
@@ -77,19 +77,19 @@ The whole process requires three easy steps:
 
 **STEP 1: Disable the network interface**
 
-    $ ip link set wlo1 down
+    # ip link set wlo1 down
 
 **STEP 2: Change MAC address of the network interface**
 
-    $ macchanger --mac 00:11:22:33:44:55 wlo1
+    # macchanger --mac 00:11:22:33:44:55 wlo1
 
 **STEP 3: Enable the network interface**
 
-    $ ip link set wlo1 up
+    # ip link set wlo1 up
 
 Ok, let's check if we succeeded:
 
-    ip link show wlo1
+    # ip link show wlo1
 
 This gives us
 
@@ -100,30 +100,31 @@ This is exactly what we wanted!
 
 Ok, now let's assume that we want our original IP address back:
     
-    $ sudo ip link set wlo1 down
-    $ sudo macchanger -p wlo1
-    $ sudo ip link set wlo1 up
+    # ip link set wlo1 down
+    # macchanger -p wlo1
+    # ip link set wlo1 up
 
 After this procedure the network is expected to go back to its *original* MAC address.
-Altenatively, after rebooting, your Linux system will return to the original MAC address.
+Altenatively, you can reboot your Linux system and it will return to the original MAC address.
 
 **macchanger** offers a couple of useful options that is worth exploring:
 
--A: this option allows to set a random vendor of any kind of device;
+-A: this option allows to set a random vendor of any kind of device. (The first 6 symbols
+of the MAC address identify the vendor of the device.)
 
 -a: this option allows to set a random vendor of the same kind of device;
 
--e: this option allows to set a random MAC address preserving the vendor's bytes.
+-e: this option allows to set a random MAC address preserving the vendor's information.
 
 
-#### Method 2: Changing MAC address using ip utility 
+#### Method 2: Changing MAC address using iproute2 tools
 
-The **ip** utility is a powerful tool for configuring network and network interfaces.
-We will be using *ip-link* program which is a part of **ip** package:
-*ip-link* is responsible for network devices configuration.
+The **iproute2** is a set of utilities for configuring network and network interfaces.
+We will be using *ip-link* which is a part of **iproute2** bundle.
+*ip-link* is responsible for network interfaces configuration.
 
 I will be doing the demonstration using my wireless network interface wlo1. Let 
-me remind, that in order to get the information about network interfaces MAC address
+me remind, that in order to get the information about network interface MAC address
 one needs to type to the Linux terminal:
 
     $ ip link show
@@ -141,19 +142,19 @@ are as follows:
 
 **STEP 1: Disable the wireless network interface**
 
-    $ ip link set wlo1 down
+    # ip link set wlo1 down
 
 **STEP 2: Change the MAC address**
 
-    $ ip link set wlo1 address 00:11:22:33:44:55
+    # ip link set wlo1 address 00:11:22:33:44:55
 
 **STEP 3: Enable the wireless network interface**
 
-    $ ip link set wlo1 up
+    # ip link set wlo1 up
 
 Verify that the change took place by issuing the command
 
-    $ ip link show wl01
+     # ip link show wl01
 
 In my case I've got
     
@@ -165,4 +166,4 @@ and running again.
 
 You can revert to the original address by following the procedure above
 and changing MAC address to the original value. There is no need to do this though, 
-because the original MAC address will be restored after the system reboot.
+because the original MAC address will be restored after the system reboots.
