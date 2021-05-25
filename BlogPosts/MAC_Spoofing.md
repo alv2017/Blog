@@ -77,7 +77,7 @@ The whole process requires three easy steps:
 
 **STEP 1: Disable the network interface**
 
-    $ ip link set dev wlo1 down
+    $ ip link set wlo1 down
 
 **STEP 2: Change MAC address of the network interface**
 
@@ -85,7 +85,7 @@ The whole process requires three easy steps:
 
 **STEP 3: Enable the network interface**
 
-    $ ip link set dev wlo1 up
+    $ ip link set wlo1 up
 
 Ok, let's check if we succeeded:
 
@@ -100,9 +100,9 @@ This is exactly what we wanted!
 
 Ok, now let's assume that we want our original IP address back:
     
-    $ sudo ip link set dev wlo1 down
+    $ sudo ip link set wlo1 down
     $ sudo macchanger -p wlo1
-    $ sudo ip link set dev wlo1 up
+    $ sudo ip link set wlo1 up
 
 After this procedure the network is expected to go back to its *original* MAC address.
 Altenatively, after rebooting, your Linux system will return to the original MAC address.
@@ -114,3 +114,55 @@ Altenatively, after rebooting, your Linux system will return to the original MAC
 -a: this option allows to set a random vendor of the same kind of device;
 
 -e: this option allows to set a random MAC address preserving the vendor's bytes.
+
+
+#### Method 2: Changing MAC address using ip utility 
+
+The **ip** utility is a powerful tool for configuring network and network interfaces.
+We will be using *ip-link* program which is a part of **ip** package:
+*ip-link* is responsible for network devices configuration.
+
+I will be doing the demonstration using my wireless network interface wlo1. Let 
+me remind, that in order to get the information about network interfaces MAC address
+one needs to type to the Linux terminal:
+
+    $ ip link show
+
+Let me also remind the result that I received for the interface wlo1:
+
+    3: wlo1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
+        link/ether fc:d1:df:d2:a8:02 brd ff:ff:ff:ff:ff:ff
+
+The MAC address of the wireless card interface is *fc:d1:df:d2:a8:02*. 
+Let's change the MAC address using *ip-link* program. We will be changing the
+MAC address to *00:11:22:33:44:55*. Please note, that you are going to need root or 
+sudo access in order to do this. The steps needed to change the MAC address 
+are as follows:
+
+**STEP 1: Disable the wireless network interface**
+
+    $ ip link set wlo1 down
+
+**STEP 2: Change the MAC address**
+
+    $ ip link set wlo1 address 00:11:22:33:44:55
+
+**STEP 3: Enable the wireless network interface**
+
+    $ ip link set wlo1 up
+
+Verify that the change took place by issuing the command
+
+    $ ip link show wl01
+
+In my case I've got
+    
+    3: wlo1: <BROADCAST,MULTICAST> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+        link/ether 00:11:22:33:44:55 brd ff:ff:ff:ff:ff:ff
+
+It means that the MAC address change was successful and that the network interface is up
+and running again. 
+
+You can revert to the original address by following the procedure above
+and changing MAC address to the original value. There is no need to do this though, 
+because the original MAC address will be restored after the system reboot.
