@@ -1,3 +1,4 @@
+# Git Basic Configuration
 
 Git is a version control system used by nearly every software developer.
 In this blog post I will describe the basic setup that I'm using when
@@ -5,14 +6,14 @@ working with Git. I must admit that this is not my invention, and I shamelessly
 picked it up from Peter Bell's amazing video course:
 [Git and Github Live Lessons](https://www.oreilly.com/library/view/git-and-github/9780133992748/).
 The course was published in 2014 by **Addison-Wesley Professional**, and in 2021
-it still very relevant and super useful for everyone willing to use Git on a sensible basis.
+it is still very relevant and super useful for everyone willing to use Git on a sensible basis.
 
 ### Git Configuration Levels
 
 There are three levels of configuration in Git: local, global, and system.
 
 In this post we will be focusing on *global* settings. You are applying Git global settings, 
-when configuring *all* your projects and repositories for your personal user account. 
+when configuring *all* your projects and repositories for your *personal* user account. 
 
 ### Basic Settings
 Let's open the terminal and let's type in the commands given below:
@@ -23,7 +24,7 @@ Let's open the terminal and let's type in the commands given below:
 
     $ git config --global color.ui true
 
-In the first command we setting up our Git username. In the second command we are setting up 
+In the first command we are setting up our Git username. In the second command we are setting up 
 our email address. In the third command we are telling Git to use colourful user interface. It is 
 still a command line interface, but with the use of colors, it makes Git commands and Git output 
 slightly more readable.
@@ -41,8 +42,6 @@ order to avoid this kind of situation, we need to set up auto carriage return li
 
 
 If you are on Windows use:
-
-    $ git config --global core.autocrlf true
 
     $ git config --global core.autocrlf true
 
@@ -65,11 +64,11 @@ Nice graphical presentation of the git log:
 
     $ git config --global alias.lg "log --oneline --all --graph --decorate"
 
-The first alias needs to be called using the command:
+The first alias is called using the command:
     
     $ git s
 
-The second alias needs to be called using the command:
+The second alias is called using the command:
     
     $ git lg
 
