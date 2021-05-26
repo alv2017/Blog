@@ -109,12 +109,14 @@ Altenatively, you can reboot your Linux system and it will return to the origina
 
 **macchanger** offers a couple of useful options that is worth exploring:
 
--A: this option allows to set a random vendor of any kind of device. (The first 6 symbols
-of the MAC address identify the vendor of the device.)
+-A: this option allows to set a random MAC address with a random existing vendor of any kind of device. 
+(The first 6 symbols of the MAC address identify the vendor of the device.)
 
--a: this option allows to set a random vendor of the same kind of device;
+-a: this option allows to set a random MAC address with a random vendor of the same kind of device.
 
--e: this option allows to set a random MAC address preserving the vendor's information.
+-e: this option allows to set a random MAC address preserving the vendor information.
+
+-r: this option generates a completely random MAC address.
 
 
 #### Method 2: Changing MAC address using iproute2 tools
