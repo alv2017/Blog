@@ -15,7 +15,13 @@ In order to serve the website through HTTPS we will be using RunServerPlus exten
 from the *django-extensions* package. *django-extensions* package is a collection of
 custom Django extensions that make the developer's life a whole way easier. 
 *RunServerPlus* combines Django runserver with Werkzeug debugger, this combo provides a number
-of enhancements for debugging and testing of Django applications.
+of enhancements for debugging and testing of Django applications. Werkzeug debugger
+is a kick ass debugger that renders nice debugging tracebacks and adds and AJAX
+based debugger allowing code execution in the context of the traceback frames.
+
+You can find more information about RunServerPlus by reading the dedicated
+*readthedocs* page of *django-extensions*: 
+https://django-extensions.readthedocs.io/en/latest/runserver_plus.html
 
 
 #### Step 1: Install django-extensions package
