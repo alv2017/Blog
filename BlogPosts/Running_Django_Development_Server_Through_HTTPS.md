@@ -33,7 +33,7 @@ of enhancements for debugging and testing of Django applications.
     $ pip install pyOpenSSL
 
 
-#### Step 4: Open settings.py and add **django-extenstions** to INSTALLED_APPS
+#### Step 4: Open settings.py and add **django-extensions** to INSTALLED_APPS
 
     INSTALLED_APPS = [
         # ...
