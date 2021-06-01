@@ -21,7 +21,8 @@ based debugger allowing code execution in the context of the traceback frames.
 
 You can find more information about RunServerPlus by reading the dedicated
 *readthedocs* page of *django-extensions*: 
-https://django-extensions.readthedocs.io/en/latest/runserver_plus.html
+[https://django-extensions.readthedocs.io/en/latest/runserver_plus.html](https://django-extensions.readthedocs.io/en/latest/runserver_plus.html)
+
 
 
 #### Step 1: Install django-extensions package
