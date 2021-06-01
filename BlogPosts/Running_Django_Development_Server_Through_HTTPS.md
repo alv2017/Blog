@@ -20,7 +20,7 @@ of enhancements for debugging and testing of Django applications.
 
 #### Step 1: Install django-extensions package
 
-    $ pip install djagno-extensions
+    $ pip install django-extensions
 
 
 #### Step 2: Install Werkzeug library
