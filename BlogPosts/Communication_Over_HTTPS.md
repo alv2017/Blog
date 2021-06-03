@@ -70,7 +70,7 @@ shared key through symmetric encryption.
 ### HTTPS Communication Demo with Python
 
 The source code is located in the git repository:
-
+<https://github.com/alv2017/Blog/tree/master/Code/HTTPS_WebSite_Example>
 
 Project structure:
 
