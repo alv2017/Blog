@@ -2,9 +2,9 @@
 
 HTTPS website ensures the following security layers:
 
-1. **Encryption**: the plain text is converted to ciphertext and back.
+1. **Encryption**: the plain text conversion to ciphertext and back.
 
-2. **Authentication**: verifies that a person or thing is who they say they are.
+2. **Authentication**: verification that a person or thing is who they say they are.
 
 3. **Data Integrity**: data can not be modified or corrupted during the transfer.
 
@@ -18,8 +18,10 @@ users from the Man-In-The-Middle attack, and builds users trust.
 
 HTTPS authentication relies on Public Key Infrastructure (PKI). PKI introduces
 the concept of certificates. The Certificates are like passports for the Internet.
-Certificates are issued by Certificate Authorities (CA) like Verisign or
-Let's Encrypt. Certificate Authorities are considered a Trusted Third Parties (TTP) 
+Certificates are issued by Certificate Authorities (CA) like 
+[Verisign](https://www.verisign.com/) or
+[Let's Encrypt](https://letsencrypt.org/). 
+Certificate Authorities are considered a Trusted Third Parties (TTP) 
 in PKI.
 
 It is impractical for a browser to know about every single certificate
@@ -93,14 +95,14 @@ In the directory named *ca_certificates_for_client* we have a sample CA certific
 
 In the directory *certificates* we have got server certificates, those certificates
 will be used when serving site content over HTTPS. The private key of the 
-server is stored in the file *site_private_key.pem*, and it is encryptied using
-a secret passphrase, the passphrase can be found in *secret/reminder.txt*.
+server is stored in the file **site_private_key.pem**, and it is encryptied using
+a secret passphrase, the passphrase can be found in **secret/reminder.txt**.
 
-A file *demo_server.py* contains a simplified version of the server side code.
+A file **demo_server.py** contains a simplified version of the server side code.
 
-A file *demo_client.py* contains a simplified version of the client side code.
+A file **demo_client.py** contains a simplified version of the client side code.
 
-A file *start_https_server.sh* contains HTTPS server starting script. The demo
+A file **start_https_server.sh** contains HTTPS server starting script. The demo
 server runs on localhost:8080.
 
 In order to start the HTTPS server on Linux go to directory 
