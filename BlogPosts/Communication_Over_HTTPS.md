@@ -108,3 +108,8 @@ Code/HTTPS_Website_Example, and issue the command:
 
     $ ./start_htpps_server.sh
 
+### References
+
+This blog post was inspired by Logan Jones post 
+[Exploring HTTPS with Python](https://realpython.com/python-https/).
+
