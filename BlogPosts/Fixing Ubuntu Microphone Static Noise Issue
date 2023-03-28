@@ -1,0 +1,28 @@
+# Fixing Ubuntu Microphone Static Noise Issue
+
+I had the problem with my microphone working on Ubuntu 20.04. There was a constant static noise in the background, and it was causing the problems
+during the onlnine meetings. 
+
+After some investigation I found out that the problem was caused by a power-saving mode settings.
+
+Power-saving modes on all peripherals are enabled by default to conserve battery on laptops and other battery-dependent systems. 
+While it doesn't affect the system performance, there can be side effects, a good example of which is a malfunctioning audio device.
+
+## Disable Power Saving Mode in snd_hda_intel
+
+Step 1: Check if the power-saving mode is enabled on **snd_hda_intel**:
+
+```
+cat /sys/module/snd_hda_intel/parameters/power_save
+
+```
+If the command returns 1, it means that the power-saving mode is on, and we need to change it to 0
+
+Step 2: Turning off power-saving mode on **snd_hda_intel**:
+
+```
+sudo su
+echo 0 > /sys/module/snd_hda_intel/parameters/power_save 
+```
+
+This it! After that the static noise in the background disappeared.
